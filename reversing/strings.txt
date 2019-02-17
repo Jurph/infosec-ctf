@@ -1,0 +1,24 @@
+/lib/ld-linux.so.2
+libc.so.6
+_IO_stdin_used
+puts
+setreuid
+printf
+getchar
+system
+geteuid
+strcmp
+__libc_start_main
+__gmon_start__
+GLIBC_2.0
+PTRhp
+QVh;
+secrf
+love
+UWVS
+t$,U
+[^_]
+password: 
+/bin/sh
+Wrong password, Good Bye ...
+;*2$"
