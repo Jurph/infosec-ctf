@@ -1,227 +1,122 @@
 Dump of assembler code for function main:
-   0x080485a8 <+0>:	push   %ebp
-   0x080485a9 <+1>:	mov    %esp,%ebp
-   0x080485ab <+3>:	push   %ebx
-   0x080485ac <+4>:	sub    $0x18,%esp
-   0x080485af <+7>:	movl   $0x8048430,-0xc(%ebp)
-   0x080485b6 <+14>:	cmpl   $0x3,0x8(%ebp)
-   0x080485ba <+18>:	je     0x80485d6 <main+46>
-   0x080485bc <+20>:	mov    0xc(%ebp),%eax
-   0x080485bf <+23>:	mov    (%eax),%eax
-   0x080485c1 <+25>:	push   %eax
-   0x080485c2 <+26>:	push   $0x8048780
-   0x080485c7 <+31>:	call   0x8048400 <printf@plt>
-   0x080485cc <+36>:	add    $0x8,%esp
-   0x080485cf <+39>:	push   $0xffffffff
-   0x080485d1 <+41>:	call   0x8048440 <exit@plt>
-   0x080485d6 <+46>:	movl   $0x0,-0x8(%ebp)
-   0x080485dd <+53>:	jmp    0x8048618 <main+112>
-   0x080485df <+55>:	mov    0x80499e8,%eax
-   0x080485e4 <+60>:	mov    -0x8(%ebp),%edx
-   0x080485e7 <+63>:	shl    $0x2,%edx
-   0x080485ea <+66>:	add    %edx,%eax
-   0x080485ec <+68>:	mov    (%eax),%eax
-   0x080485ee <+70>:	push   %eax
-   0x080485ef <+71>:	call   0x8048460 <strlen@plt>
-   0x080485f4 <+76>:	add    $0x4,%esp
-   0x080485f7 <+79>:	mov    %eax,%ecx
-   0x080485f9 <+81>:	mov    0x80499e8,%eax
-   0x080485fe <+86>:	mov    -0x8(%ebp),%edx
-   0x08048601 <+89>:	shl    $0x2,%edx
-   0x08048604 <+92>:	add    %edx,%eax
-   0x08048606 <+94>:	mov    (%eax),%eax
-   0x08048608 <+96>:	push   %ecx
-   0x08048609 <+97>:	push   $0x0
-   0x0804860b <+99>:	push   %eax
-   0x0804860c <+100>:	call   0x8048480 <memset@plt>
-   0x08048611 <+105>:	add    $0xc,%esp
-   0x08048614 <+108>:	addl   $0x1,-0x8(%ebp)
-   0x08048618 <+112>:	mov    0x80499e8,%eax
-   0x0804861d <+117>:	mov    -0x8(%ebp),%edx
-   0x08048620 <+120>:	shl    $0x2,%edx
-   0x08048623 <+123>:	add    %edx,%eax
-   0x08048625 <+125>:	mov    (%eax),%eax
-   0x08048627 <+127>:	test   %eax,%eax
-   0x08048629 <+129>:	jne    0x80485df <main+55>
-   0x0804862b <+131>:	movl   $0x3,-0x8(%ebp)
-   0x08048632 <+138>:	jmp    0x8048671 <main+201>
-   0x08048634 <+140>:	mov    -0x8(%ebp),%eax
-   0x08048637 <+143>:	lea    0x0(,%eax,4),%edx
-   0x0804863e <+150>:	mov    0xc(%ebp),%eax
-   0x08048641 <+153>:	add    %edx,%eax
-   0x08048643 <+155>:	mov    (%eax),%eax
-   0x08048645 <+157>:	push   %eax
-   0x08048646 <+158>:	call   0x8048460 <strlen@plt>
-   0x0804864b <+163>:	add    $0x4,%esp
-   0x0804864e <+166>:	mov    %eax,%edx
-   0x08048650 <+168>:	mov    -0x8(%ebp),%eax
-   0x08048653 <+171>:	lea    0x0(,%eax,4),%ecx
-   0x0804865a <+178>:	mov    0xc(%ebp),%eax
-   0x0804865d <+181>:	add    %ecx,%eax
-   0x0804865f <+183>:	mov    (%eax),%eax
-   0x08048661 <+185>:	push   %edx
-   0x08048662 <+186>:	push   $0x0
-   0x08048664 <+188>:	push   %eax
-   0x08048665 <+189>:	call   0x8048480 <memset@plt>
-   0x0804866a <+194>:	add    $0xc,%esp
-   0x0804866d <+197>:	addl   $0x1,-0x8(%ebp)
-   0x08048671 <+201>:	mov    -0x8(%ebp),%eax
-   0x08048674 <+204>:	lea    0x0(,%eax,4),%edx
-   0x0804867b <+211>:	mov    0xc(%ebp),%eax
-   0x0804867e <+214>:	add    %edx,%eax
-   0x08048680 <+216>:	mov    (%eax),%eax
-   0x08048682 <+218>:	test   %eax,%eax
-   0x08048684 <+220>:	jne    0x8048634 <main+140>
-   0x08048686 <+222>:	mov    0xc(%ebp),%eax
-   0x08048689 <+225>:	add    $0x4,%eax
-   0x0804868c <+228>:	mov    (%eax),%eax
-   0x0804868e <+230>:	push   %eax
-   0x0804868f <+231>:	lea    -0x14(%ebp),%eax
-   0x08048692 <+234>:	push   %eax
-   0x08048693 <+235>:	call   0x8048420 <strcpy@plt>
-   0x08048698 <+240>:	add    $0x8,%esp
-   0x0804869b <+243>:	mov    0xc(%ebp),%eax
-   0x0804869e <+246>:	add    $0x8,%eax
-   0x080486a1 <+249>:	mov    (%eax),%eax
-   0x080486a3 <+251>:	push   %eax
-   0x080486a4 <+252>:	lea    -0x1c(%ebp),%eax
-   0x080486a7 <+255>:	push   %eax
-   0x080486a8 <+256>:	call   0x8048420 <strcpy@plt>
-   0x080486ad <+261>:	add    $0x8,%esp
-   0x080486b0 <+264>:	mov    -0xc(%ebp),%eax
-   0x080486b3 <+267>:	and    $0xff000000,%eax
-   0x080486b8 <+272>:	mov    %eax,%ebx
-   0x080486ba <+274>:	call   0x804859b <get_sp>
-   0x080486bf <+279>:	cmp    %eax,%ebx
-   0x080486c1 <+281>:	jne    0x80486ca <main+290>
-   0x080486c3 <+283>:	push   $0xffffffff
-   0x080486c5 <+285>:	call   0x8048440 <exit@plt>
-   0x080486ca <+290>:	call   0x8048410 <geteuid@plt>
-   0x080486cf <+295>:	mov    %eax,%ebx
-   0x080486d1 <+297>:	call   0x8048410 <geteuid@plt>
-   0x080486d6 <+302>:	push   %ebx
-   0x080486d7 <+303>:	push   %eax
-   0x080486d8 <+304>:	call   0x8048450 <setreuid@plt>
-   0x080486dd <+309>:	add    $0x8,%esp
-   0x080486e0 <+312>:	lea    -0x14(%ebp),%eax
-   0x080486e3 <+315>:	push   %eax
-   0x080486e4 <+316>:	mov    -0xc(%ebp),%eax
-   0x080486e7 <+319>:	call   *%eax
-   0x080486e9 <+321>:	add    $0x4,%esp
-   0x080486ec <+324>:	push   $0x1
-   0x080486ee <+326>:	call   0x8048440 <exit@plt>
+   0x00000000004007c9 <+0>:	push   rbp
+   0x00000000004007ca <+1>:	mov    rbp,rsp
+   0x00000000004007cd <+4>:	push   rbx
+   0x00000000004007ce <+5>:	sub    rsp,0x48
+   0x00000000004007d2 <+9>:	mov    DWORD PTR [rbp-0x44],edi
+   0x00000000004007d5 <+12>:	mov    QWORD PTR [rbp-0x50],rsi
+   0x00000000004007d9 <+16>:	mov    QWORD PTR [rbp-0x20],0x400630
+   0x00000000004007e1 <+24>:	cmp    DWORD PTR [rbp-0x44],0x3
+   0x00000000004007e5 <+28>:	je     0x40080a <main+65>
+   0x00000000004007e7 <+30>:	mov    rax,QWORD PTR [rbp-0x50]
+   0x00000000004007eb <+34>:	mov    rax,QWORD PTR [rax]
+   0x00000000004007ee <+37>:	mov    rsi,rax
+   0x00000000004007f1 <+40>:	mov    edi,0x400a2c
+   0x00000000004007f6 <+45>:	mov    eax,0x0
+   0x00000000004007fb <+50>:	call   0x400650 <printf@plt>
+   0x0000000000400800 <+55>:	mov    edi,0xffffffff
+   0x0000000000400805 <+60>:	call   0x4006a0 <exit@plt>
+   0x000000000040080a <+65>:	mov    DWORD PTR [rbp-0x14],0x0
+   0x0000000000400811 <+72>:	jmp    0x40085d <main+148>
+   0x0000000000400813 <+74>:	mov    rax,QWORD PTR [rip+0x20058e]        # 0x600da8 <environ@@GLIBC_2.2.5>
+   0x000000000040081a <+81>:	mov    edx,DWORD PTR [rbp-0x14]
+   0x000000000040081d <+84>:	movsxd rdx,edx
+   0x0000000000400820 <+87>:	shl    rdx,0x3
+   0x0000000000400824 <+91>:	add    rax,rdx
+   0x0000000000400827 <+94>:	mov    rax,QWORD PTR [rax]
+   0x000000000040082a <+97>:	mov    rdi,rax
+   0x000000000040082d <+100>:	call   0x400640 <strlen@plt>
+   0x0000000000400832 <+105>:	mov    rdx,rax
+   0x0000000000400835 <+108>:	mov    rax,QWORD PTR [rip+0x20056c]        # 0x600da8 <environ@@GLIBC_2.2.5>
+   0x000000000040083c <+115>:	mov    ecx,DWORD PTR [rbp-0x14]
+   0x000000000040083f <+118>:	movsxd rcx,ecx
+   0x0000000000400842 <+121>:	shl    rcx,0x3
+   0x0000000000400846 <+125>:	add    rax,rcx
+   0x0000000000400849 <+128>:	mov    rax,QWORD PTR [rax]
+   0x000000000040084c <+131>:	mov    esi,0x0
+   0x0000000000400851 <+136>:	mov    rdi,rax
+   0x0000000000400854 <+139>:	call   0x400660 <memset@plt>
+   0x0000000000400859 <+144>:	add    DWORD PTR [rbp-0x14],0x1
+   0x000000000040085d <+148>:	mov    rax,QWORD PTR [rip+0x200544]        # 0x600da8 <environ@@GLIBC_2.2.5>
+   0x0000000000400864 <+155>:	mov    edx,DWORD PTR [rbp-0x14]
+   0x0000000000400867 <+158>:	movsxd rdx,edx
+   0x000000000040086a <+161>:	shl    rdx,0x3
+   0x000000000040086e <+165>:	add    rax,rdx
+   0x0000000000400871 <+168>:	mov    rax,QWORD PTR [rax]
+   0x0000000000400874 <+171>:	test   rax,rax
+   0x0000000000400877 <+174>:	jne    0x400813 <main+74>
+   0x0000000000400879 <+176>:	mov    DWORD PTR [rbp-0x14],0x3
+   0x0000000000400880 <+183>:	jmp    0x4008cc <main+259>
+   0x0000000000400882 <+185>:	mov    eax,DWORD PTR [rbp-0x14]
+   0x0000000000400885 <+188>:	cdqe   
+   0x0000000000400887 <+190>:	lea    rdx,[rax*8+0x0]
+   0x000000000040088f <+198>:	mov    rax,QWORD PTR [rbp-0x50]
+   0x0000000000400893 <+202>:	add    rax,rdx
+   0x0000000000400896 <+205>:	mov    rax,QWORD PTR [rax]
+   0x0000000000400899 <+208>:	mov    rdi,rax
+   0x000000000040089c <+211>:	call   0x400640 <strlen@plt>
+   0x00000000004008a1 <+216>:	mov    rdx,rax
+   0x00000000004008a4 <+219>:	mov    eax,DWORD PTR [rbp-0x14]
+   0x00000000004008a7 <+222>:	cdqe   
+   0x00000000004008a9 <+224>:	lea    rcx,[rax*8+0x0]
+   0x00000000004008b1 <+232>:	mov    rax,QWORD PTR [rbp-0x50]
+   0x00000000004008b5 <+236>:	add    rax,rcx
+   0x00000000004008b8 <+239>:	mov    rax,QWORD PTR [rax]
+   0x00000000004008bb <+242>:	mov    esi,0x0
+   0x00000000004008c0 <+247>:	mov    rdi,rax
+   0x00000000004008c3 <+250>:	call   0x400660 <memset@plt>
+   0x00000000004008c8 <+255>:	add    DWORD PTR [rbp-0x14],0x1
+   0x00000000004008cc <+259>:	mov    eax,DWORD PTR [rbp-0x14]
+   0x00000000004008cf <+262>:	cdqe   
+   0x00000000004008d1 <+264>:	lea    rdx,[rax*8+0x0]
+   0x00000000004008d9 <+272>:	mov    rax,QWORD PTR [rbp-0x50]
+   0x00000000004008dd <+276>:	add    rax,rdx
+   0x00000000004008e0 <+279>:	mov    rax,QWORD PTR [rax]
+   0x00000000004008e3 <+282>:	test   rax,rax
+   0x00000000004008e6 <+285>:	jne    0x400882 <main+185>
+   0x00000000004008e8 <+287>:	mov    rax,QWORD PTR [rbp-0x50]
+   0x00000000004008ec <+291>:	add    rax,0x8
+   0x00000000004008f0 <+295>:	mov    rdx,QWORD PTR [rax]
+   0x00000000004008f3 <+298>:	lea    rax,[rbp-0x30]
+   0x00000000004008f7 <+302>:	mov    rsi,rdx
+   0x00000000004008fa <+305>:	mov    rdi,rax
+   0x00000000004008fd <+308>:	call   0x400620 <strcpy@plt>
+   0x0000000000400902 <+313>:	mov    rax,QWORD PTR [rbp-0x50]
+   0x0000000000400906 <+317>:	add    rax,0x10
+   0x000000000040090a <+321>:	mov    rdx,QWORD PTR [rax]
+   0x000000000040090d <+324>:	lea    rax,[rbp-0x40]
+   0x0000000000400911 <+328>:	mov    rsi,rdx
+   0x0000000000400914 <+331>:	mov    rdi,rax
+   0x0000000000400917 <+334>:	call   0x400620 <strcpy@plt>
+   0x000000000040091c <+339>:	mov    rax,QWORD PTR [rbp-0x20]
+   0x0000000000400920 <+343>:	mov    rbx,rax
+   0x0000000000400923 <+346>:	and    ebx,0xff000000
+   0x0000000000400929 <+352>:	call   0x4007bc <get_sp>
+   0x000000000040092e <+357>:	cmp    rbx,rax
+   0x0000000000400931 <+360>:	jne    0x40093d <main+372>
+   0x0000000000400933 <+362>:	mov    edi,0xffffffff
+   0x0000000000400938 <+367>:	call   0x4006a0 <exit@plt>
+   0x000000000040093d <+372>:	mov    eax,0x0
+   0x0000000000400942 <+377>:	call   0x400670 <geteuid@plt>
+   0x0000000000400947 <+382>:	mov    ebx,eax
+   0x0000000000400949 <+384>:	mov    eax,0x0
+   0x000000000040094e <+389>:	call   0x400670 <geteuid@plt>
+   0x0000000000400953 <+394>:	mov    esi,ebx
+   0x0000000000400955 <+396>:	mov    edi,eax
+   0x0000000000400957 <+398>:	mov    eax,0x0
+   0x000000000040095c <+403>:	call   0x400690 <setreuid@plt>
+   0x0000000000400961 <+408>:	lea    rdx,[rbp-0x30]
+   0x0000000000400965 <+412>:	mov    rax,QWORD PTR [rbp-0x20]
+   0x0000000000400969 <+416>:	mov    rdi,rdx
+   0x000000000040096c <+419>:	call   rax
+   0x000000000040096e <+421>:	mov    edi,0x1
+   0x0000000000400973 <+426>:	call   0x4006a0 <exit@plt>
 End of assembler dump.
-Dump of assembler code for function main:
-   0x080485a8 <+0>:	push   ebp
-   0x080485a9 <+1>:	mov    ebp,esp
-   0x080485ab <+3>:	push   ebx
-   0x080485ac <+4>:	sub    esp,0x18
-   0x080485af <+7>:	mov    DWORD PTR [ebp-0xc],0x8048430
-   0x080485b6 <+14>:	cmp    DWORD PTR [ebp+0x8],0x3
-   0x080485ba <+18>:	je     0x80485d6 <main+46>
-   0x080485bc <+20>:	mov    eax,DWORD PTR [ebp+0xc]
-   0x080485bf <+23>:	mov    eax,DWORD PTR [eax]
-   0x080485c1 <+25>:	push   eax
-   0x080485c2 <+26>:	push   0x8048780
-   0x080485c7 <+31>:	call   0x8048400 <printf@plt>
-   0x080485cc <+36>:	add    esp,0x8
-   0x080485cf <+39>:	push   0xffffffff
-   0x080485d1 <+41>:	call   0x8048440 <exit@plt>
-   0x080485d6 <+46>:	mov    DWORD PTR [ebp-0x8],0x0
-   0x080485dd <+53>:	jmp    0x8048618 <main+112>
-   0x080485df <+55>:	mov    eax,ds:0x80499e8
-   0x080485e4 <+60>:	mov    edx,DWORD PTR [ebp-0x8]
-   0x080485e7 <+63>:	shl    edx,0x2
-   0x080485ea <+66>:	add    eax,edx
-   0x080485ec <+68>:	mov    eax,DWORD PTR [eax]
-   0x080485ee <+70>:	push   eax
-   0x080485ef <+71>:	call   0x8048460 <strlen@plt>
-   0x080485f4 <+76>:	add    esp,0x4
-   0x080485f7 <+79>:	mov    ecx,eax
-   0x080485f9 <+81>:	mov    eax,ds:0x80499e8
-   0x080485fe <+86>:	mov    edx,DWORD PTR [ebp-0x8]
-   0x08048601 <+89>:	shl    edx,0x2
-   0x08048604 <+92>:	add    eax,edx
-   0x08048606 <+94>:	mov    eax,DWORD PTR [eax]
-   0x08048608 <+96>:	push   ecx
-   0x08048609 <+97>:	push   0x0
-   0x0804860b <+99>:	push   eax
-   0x0804860c <+100>:	call   0x8048480 <memset@plt>
-   0x08048611 <+105>:	add    esp,0xc
-   0x08048614 <+108>:	add    DWORD PTR [ebp-0x8],0x1
-   0x08048618 <+112>:	mov    eax,ds:0x80499e8
-   0x0804861d <+117>:	mov    edx,DWORD PTR [ebp-0x8]
-   0x08048620 <+120>:	shl    edx,0x2
-   0x08048623 <+123>:	add    eax,edx
-   0x08048625 <+125>:	mov    eax,DWORD PTR [eax]
-   0x08048627 <+127>:	test   eax,eax
-   0x08048629 <+129>:	jne    0x80485df <main+55>
-   0x0804862b <+131>:	mov    DWORD PTR [ebp-0x8],0x3
-   0x08048632 <+138>:	jmp    0x8048671 <main+201>
-   0x08048634 <+140>:	mov    eax,DWORD PTR [ebp-0x8]
-   0x08048637 <+143>:	lea    edx,[eax*4+0x0]
-   0x0804863e <+150>:	mov    eax,DWORD PTR [ebp+0xc]
-   0x08048641 <+153>:	add    eax,edx
-   0x08048643 <+155>:	mov    eax,DWORD PTR [eax]
-   0x08048645 <+157>:	push   eax
-   0x08048646 <+158>:	call   0x8048460 <strlen@plt>
-   0x0804864b <+163>:	add    esp,0x4
-   0x0804864e <+166>:	mov    edx,eax
-   0x08048650 <+168>:	mov    eax,DWORD PTR [ebp-0x8]
-   0x08048653 <+171>:	lea    ecx,[eax*4+0x0]
-   0x0804865a <+178>:	mov    eax,DWORD PTR [ebp+0xc]
-   0x0804865d <+181>:	add    eax,ecx
-   0x0804865f <+183>:	mov    eax,DWORD PTR [eax]
-   0x08048661 <+185>:	push   edx
-   0x08048662 <+186>:	push   0x0
-   0x08048664 <+188>:	push   eax
-   0x08048665 <+189>:	call   0x8048480 <memset@plt>
-   0x0804866a <+194>:	add    esp,0xc
-   0x0804866d <+197>:	add    DWORD PTR [ebp-0x8],0x1
-   0x08048671 <+201>:	mov    eax,DWORD PTR [ebp-0x8]
-   0x08048674 <+204>:	lea    edx,[eax*4+0x0]
-   0x0804867b <+211>:	mov    eax,DWORD PTR [ebp+0xc]
-   0x0804867e <+214>:	add    eax,edx
-   0x08048680 <+216>:	mov    eax,DWORD PTR [eax]
-   0x08048682 <+218>:	test   eax,eax
-   0x08048684 <+220>:	jne    0x8048634 <main+140>
-   0x08048686 <+222>:	mov    eax,DWORD PTR [ebp+0xc]
-   0x08048689 <+225>:	add    eax,0x4
-   0x0804868c <+228>:	mov    eax,DWORD PTR [eax]
-   0x0804868e <+230>:	push   eax
-   0x0804868f <+231>:	lea    eax,[ebp-0x14]
-   0x08048692 <+234>:	push   eax
-   0x08048693 <+235>:	call   0x8048420 <strcpy@plt>
-   0x08048698 <+240>:	add    esp,0x8
-   0x0804869b <+243>:	mov    eax,DWORD PTR [ebp+0xc]
-   0x0804869e <+246>:	add    eax,0x8
-   0x080486a1 <+249>:	mov    eax,DWORD PTR [eax]
-   0x080486a3 <+251>:	push   eax
-   0x080486a4 <+252>:	lea    eax,[ebp-0x1c]
-   0x080486a7 <+255>:	push   eax
-   0x080486a8 <+256>:	call   0x8048420 <strcpy@plt>
-   0x080486ad <+261>:	add    esp,0x8
-   0x080486b0 <+264>:	mov    eax,DWORD PTR [ebp-0xc]
-   0x080486b3 <+267>:	and    eax,0xff000000
-   0x080486b8 <+272>:	mov    ebx,eax
-   0x080486ba <+274>:	call   0x804859b <get_sp>
-   0x080486bf <+279>:	cmp    ebx,eax
-   0x080486c1 <+281>:	jne    0x80486ca <main+290>
-   0x080486c3 <+283>:	push   0xffffffff
-   0x080486c5 <+285>:	call   0x8048440 <exit@plt>
-   0x080486ca <+290>:	call   0x8048410 <geteuid@plt>
-   0x080486cf <+295>:	mov    ebx,eax
-   0x080486d1 <+297>:	call   0x8048410 <geteuid@plt>
-   0x080486d6 <+302>:	push   ebx
-   0x080486d7 <+303>:	push   eax
-   0x080486d8 <+304>:	call   0x8048450 <setreuid@plt>
-   0x080486dd <+309>:	add    esp,0x8
-   0x080486e0 <+312>:	lea    eax,[ebp-0x14]
-   0x080486e3 <+315>:	push   eax
-   0x080486e4 <+316>:	mov    eax,DWORD PTR [ebp-0xc]
-   0x080486e7 <+319>:	call   eax
-   0x080486e9 <+321>:	add    esp,0x4
-   0x080486ec <+324>:	push   0x1
-   0x080486ee <+326>:	call   0x8048440 <exit@plt>
+Dump of assembler code for function get_sp:
+   0x00000000004007bc <+0>:	push   rbp
+   0x00000000004007bd <+1>:	mov    rbp,rsp
+   0x00000000004007c0 <+4>:	mov    eax,esp
+   0x00000000004007c2 <+6>:	and    eax,0xff000000
+   0x00000000004007c7 <+11>:	pop    rbp
+   0x00000000004007c8 <+12>:	ret    
 End of assembler dump.
-Undefined command: "quite".  Try "help".
