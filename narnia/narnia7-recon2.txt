@@ -1,0 +1,140 @@
+No function contains specified address.
+No symbol table is loaded.  Use the "file" command.
+Dump of assembler code for function vuln:
+   0x0804861b <+0>:	push   %ebp
+   0x0804861c <+1>:	mov    %esp,%ebp
+   0x0804861e <+3>:	sub    $0x84,%esp
+   0x08048624 <+9>:	push   $0x80
+   0x08048629 <+14>:	push   $0x0
+   0x0804862b <+16>:	lea    -0x80(%ebp),%eax
+   0x0804862e <+19>:	push   %eax
+   0x0804862f <+20>:	call   0x80484f0 <memset@plt>
+   0x08048634 <+25>:	add    $0xc,%esp
+   0x08048637 <+28>:	push   $0x80486ff
+   0x0804863c <+33>:	push   $0x80487f0
+   0x08048641 <+38>:	call   0x8048450 <printf@plt>
+   0x08048646 <+43>:	add    $0x8,%esp
+   0x08048649 <+46>:	push   $0x8048724
+   0x0804864e <+51>:	push   $0x8048805
+   0x08048653 <+56>:	call   0x8048450 <printf@plt>
+   0x08048658 <+61>:	add    $0x8,%esp
+   0x0804865b <+64>:	movl   $0x80486ff,-0x84(%ebp)
+   0x08048665 <+74>:	mov    -0x84(%ebp),%eax
+   0x0804866b <+80>:	lea    -0x84(%ebp),%edx
+   0x08048671 <+86>:	push   %edx
+   0x08048672 <+87>:	push   %eax
+   0x08048673 <+88>:	push   $0x804881d
+   0x08048678 <+93>:	call   0x8048450 <printf@plt>
+   0x0804867d <+98>:	add    $0xc,%esp
+   0x08048680 <+101>:	push   $0x8048838
+   0x08048685 <+106>:	call   0x8048490 <puts@plt>
+   0x0804868a <+111>:	add    $0x4,%esp
+   0x0804868d <+114>:	push   $0x2
+   0x0804868f <+116>:	call   0x8048470 <sleep@plt>
+   0x08048694 <+121>:	add    $0x4,%esp
+   0x08048697 <+124>:	movl   $0x80486ff,-0x84(%ebp)
+   0x080486a1 <+134>:	pushl  0x8(%ebp)
+   0x080486a4 <+137>:	push   $0x80
+   0x080486a9 <+142>:	lea    -0x80(%ebp),%eax
+   0x080486ac <+145>:	push   %eax
+   0x080486ad <+146>:	call   0x8048500 <snprintf@plt>
+   0x080486b2 <+151>:	add    $0xc,%esp
+   0x080486b5 <+154>:	mov    -0x84(%ebp),%eax
+   0x080486bb <+160>:	call   *%eax
+   0x080486bd <+162>:	leave  
+   0x080486be <+163>:	ret    
+End of assembler dump.
+Dump of assembler code for function main:
+   0x080486bf <+0>:	push   %ebp
+   0x080486c0 <+1>:	mov    %esp,%ebp
+   0x080486c2 <+3>:	cmpl   $0x1,0x8(%ebp)
+   0x080486c6 <+7>:	jg     0x80486e8 <main+41>
+   0x080486c8 <+9>:	mov    0xc(%ebp),%eax
+   0x080486cb <+12>:	mov    (%eax),%edx
+   0x080486cd <+14>:	mov    0x8049b90,%eax
+   0x080486d2 <+19>:	push   %edx
+   0x080486d3 <+20>:	push   $0x804886a
+   0x080486d8 <+25>:	push   %eax
+   0x080486d9 <+26>:	call   0x80484e0 <fprintf@plt>
+   0x080486de <+31>:	add    $0xc,%esp
+   0x080486e1 <+34>:	push   $0xffffffff
+   0x080486e3 <+36>:	call   0x80484b0 <exit@plt>
+   0x080486e8 <+41>:	mov    0xc(%ebp),%eax
+   0x080486eb <+44>:	add    $0x4,%eax
+   0x080486ee <+47>:	mov    (%eax),%eax
+   0x080486f0 <+49>:	push   %eax
+   0x080486f1 <+50>:	call   0x804861b <vuln>
+   0x080486f6 <+55>:	add    $0x4,%esp
+   0x080486f9 <+58>:	push   %eax
+   0x080486fa <+59>:	call   0x80484b0 <exit@plt>
+End of assembler dump.
+Dump of assembler code for function goodfunction:
+   0x080486ff <+0>:	push   %ebp
+   0x08048700 <+1>:	mov    %esp,%ebp
+   0x08048702 <+3>:	push   $0x8048880
+   0x08048707 <+8>:	call   0x8048490 <puts@plt>
+   0x0804870c <+13>:	add    $0x4,%esp
+   0x0804870f <+16>:	mov    0x8049b94,%eax
+   0x08048714 <+21>:	push   %eax
+   0x08048715 <+22>:	call   0x8048460 <fflush@plt>
+   0x0804871a <+27>:	add    $0x4,%esp
+   0x0804871d <+30>:	mov    $0x0,%eax
+   0x08048722 <+35>:	leave  
+   0x08048723 <+36>:	ret    
+End of assembler dump.
+Dump of assembler code for function hackedfunction:
+   0x08048724 <+0>:	push   %ebp
+   0x08048725 <+1>:	mov    %esp,%ebp
+   0x08048727 <+3>:	push   %ebx
+   0x08048728 <+4>:	push   $0x80488bd
+   0x0804872d <+9>:	call   0x8048450 <printf@plt>
+   0x08048732 <+14>:	add    $0x4,%esp
+   0x08048735 <+17>:	mov    0x8049b94,%eax
+   0x0804873a <+22>:	push   %eax
+   0x0804873b <+23>:	call   0x8048460 <fflush@plt>
+   0x08048740 <+28>:	add    $0x4,%esp
+   0x08048743 <+31>:	call   0x8048480 <geteuid@plt>
+   0x08048748 <+36>:	mov    %eax,%ebx
+   0x0804874a <+38>:	call   0x8048480 <geteuid@plt>
+   0x0804874f <+43>:	push   %ebx
+   0x08048750 <+44>:	push   %eax
+   0x08048751 <+45>:	call   0x80484c0 <setreuid@plt>
+   0x08048756 <+50>:	add    $0x8,%esp
+   0x08048759 <+53>:	push   $0x80488cb
+   0x0804875e <+58>:	call   0x80484a0 <system@plt>
+   0x08048763 <+63>:	add    $0x4,%esp
+   0x08048766 <+66>:	mov    $0x0,%eax
+   0x0804876b <+71>:	mov    -0x4(%ebp),%ebx
+   0x0804876e <+74>:	leave  
+   0x0804876f <+75>:	ret    
+End of assembler dump.
+Breakpoint 5 at 0x80484a0
+Function "execve" not defined.
+Breakpoint 6 (execve) pending.
+Function "execl" not defined.
+Breakpoint 7 (execl) pending.
+Starting program: /narnia/narnia7 
+
+Breakpoint 1, 0x080486c2 in main ()
+Single stepping until exit from function main,
+which has no line number information.
+[Inferior 1 (process 416) exited with code 0377]
+Undefined command: "get".  Try "help".
+Num     Type           Disp Enb Address    What
+1       breakpoint     keep y   0x080486c2 <main+3>
+	breakpoint already hit 1 time
+2       breakpoint     keep y   0x08048728 <hackedfunction+4>
+3       breakpoint     keep y   0x08048702 <goodfunction+3>
+4       breakpoint     keep y   0x08048624 <vuln+9>
+5       breakpoint     keep y   0xf7e4c850 <system>
+6       breakpoint     keep y   0xf7ec35e0 <execve>
+7       breakpoint     keep y   0xf7ec37f0 <execl+16>
+Num     Type           Disp Enb Address    What
+1       breakpoint     keep y   0x080486c2 <main+3>
+	breakpoint already hit 1 time
+2       breakpoint     keep y   0x08048728 <hackedfunction+4>
+3       breakpoint     keep y   0x08048702 <goodfunction+3>
+4       breakpoint     keep y   0x08048624 <vuln+9>
+5       breakpoint     keep y   0xf7e4c850 <system>
+6       breakpoint     keep y   0xf7ec35e0 <execve>
+7       breakpoint     keep y   0xf7ec37f0 <execl+16>
