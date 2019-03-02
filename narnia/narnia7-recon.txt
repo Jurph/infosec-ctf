@@ -1,0 +1,149 @@
+Dump of assembler code for function main:
+   0x00000000000012e7 <+0>:	push   %rbp
+   0x00000000000012e8 <+1>:	mov    %rsp,%rbp
+   0x00000000000012eb <+4>:	sub    $0x10,%rsp
+   0x00000000000012ef <+8>:	mov    %edi,-0x4(%rbp)
+   0x00000000000012f2 <+11>:	mov    %rsi,-0x10(%rbp)
+   0x00000000000012f6 <+15>:	cmpl   $0x1,-0x4(%rbp)
+   0x00000000000012fa <+19>:	jg     0x1328 <main+65>
+   0x00000000000012fc <+21>:	mov    -0x10(%rbp),%rax
+   0x0000000000001300 <+25>:	mov    (%rax),%rdx
+   0x0000000000001303 <+28>:	mov    0x2d36(%rip),%rax        # 0x4040 <stderr@@GLIBC_2.2.5>
+   0x000000000000130a <+35>:	lea    0xd71(%rip),%rsi        # 0x2082
+   0x0000000000001311 <+42>:	mov    %rax,%rdi
+   0x0000000000001314 <+45>:	mov    $0x0,%eax
+   0x0000000000001319 <+50>:	callq  0x10a0 <fprintf@plt>
+   0x000000000000131e <+55>:	mov    $0xffffffff,%edi
+   0x0000000000001323 <+60>:	callq  0x10d0 <exit@plt>
+   0x0000000000001328 <+65>:	mov    -0x10(%rbp),%rax
+   0x000000000000132c <+69>:	add    $0x8,%rax
+   0x0000000000001330 <+73>:	mov    (%rax),%rax
+   0x0000000000001333 <+76>:	mov    %rax,%rdi
+   0x0000000000001336 <+79>:	callq  0x11e5 <vuln>
+   0x000000000000133b <+84>:	mov    %eax,%edi
+   0x000000000000133d <+86>:	callq  0x10d0 <exit@plt>
+End of assembler dump.
+Dump of assembler code for function vuln:
+   0x00000000000011e5 <+0>:	push   %rbp
+   0x00000000000011e6 <+1>:	mov    %rsp,%rbp
+   0x00000000000011e9 <+4>:	sub    $0xb0,%rsp
+   0x00000000000011f0 <+11>:	mov    %rdi,-0xa8(%rbp)
+   0x00000000000011f7 <+18>:	mov    %fs:0x28,%rax
+   0x0000000000001200 <+27>:	mov    %rax,-0x8(%rbp)
+   0x0000000000001204 <+31>:	xor    %eax,%eax
+   0x0000000000001206 <+33>:	lea    -0x90(%rbp),%rax
+   0x000000000000120d <+40>:	mov    $0x80,%edx
+   0x0000000000001212 <+45>:	mov    $0x0,%esi
+   0x0000000000001217 <+50>:	mov    %rax,%rdi
+   0x000000000000121a <+53>:	callq  0x1080 <memset@plt>
+   0x000000000000121f <+58>:	lea    0x11c(%rip),%rsi        # 0x1342 <goodfunction>
+   0x0000000000001226 <+65>:	lea    0xddb(%rip),%rdi        # 0x2008
+   0x000000000000122d <+72>:	mov    $0x0,%eax
+   0x0000000000001232 <+77>:	callq  0x1060 <printf@plt>
+   0x0000000000001237 <+82>:	lea    0x12a(%rip),%rsi        # 0x1368 <hackedfunction>
+   0x000000000000123e <+89>:	lea    0xdd8(%rip),%rdi        # 0x201d
+   0x0000000000001245 <+96>:	mov    $0x0,%eax
+   0x000000000000124a <+101>:	callq  0x1060 <printf@plt>
+   0x000000000000124f <+106>:	lea    0xec(%rip),%rax        # 0x1342 <goodfunction>
+   0x0000000000001256 <+113>:	mov    %rax,-0x98(%rbp)
+   0x000000000000125d <+120>:	mov    -0x98(%rbp),%rax
+   0x0000000000001264 <+127>:	lea    -0x98(%rbp),%rdx
+   0x000000000000126b <+134>:	mov    %rax,%rsi
+   0x000000000000126e <+137>:	lea    0xdc0(%rip),%rdi        # 0x2035
+   0x0000000000001275 <+144>:	mov    $0x0,%eax
+   0x000000000000127a <+149>:	callq  0x1060 <printf@plt>
+   0x000000000000127f <+154>:	lea    0xdca(%rip),%rdi        # 0x2050
+   0x0000000000001286 <+161>:	callq  0x1030 <puts@plt>
+   0x000000000000128b <+166>:	mov    $0x2,%edi
+   0x0000000000001290 <+171>:	callq  0x10e0 <sleep@plt>
+   0x0000000000001295 <+176>:	lea    0xa6(%rip),%rax        # 0x1342 <goodfunction>
+   0x000000000000129c <+183>:	mov    %rax,-0x98(%rbp)
+   0x00000000000012a3 <+190>:	mov    -0xa8(%rbp),%rdx
+   0x00000000000012aa <+197>:	lea    -0x90(%rbp),%rax
+   0x00000000000012b1 <+204>:	mov    $0x80,%esi
+   0x00000000000012b6 <+209>:	mov    %rax,%rdi
+   0x00000000000012b9 <+212>:	mov    $0x0,%eax
+   0x00000000000012be <+217>:	callq  0x1070 <snprintf@plt>
+   0x00000000000012c3 <+222>:	mov    -0x98(%rbp),%rdx
+   0x00000000000012ca <+229>:	mov    $0x0,%eax
+   0x00000000000012cf <+234>:	callq  *%rdx
+   0x00000000000012d1 <+236>:	mov    -0x8(%rbp),%rcx
+   0x00000000000012d5 <+240>:	xor    %fs:0x28,%rcx
+   0x00000000000012de <+249>:	je     0x12e5 <vuln+256>
+   0x00000000000012e0 <+251>:	callq  0x1040 <__stack_chk_fail@plt>
+   0x00000000000012e5 <+256>:	leaveq 
+   0x00000000000012e6 <+257>:	retq   
+End of assembler dump.
+Dump of assembler code for function goodfunction:
+   0x0000000000001342 <+0>:	push   %rbp
+   0x0000000000001343 <+1>:	mov    %rsp,%rbp
+   0x0000000000001346 <+4>:	lea    0xd4b(%rip),%rdi        # 0x2098
+   0x000000000000134d <+11>:	callq  0x1030 <puts@plt>
+   0x0000000000001352 <+16>:	mov    0x2cc7(%rip),%rax        # 0x4020 <stdout@@GLIBC_2.2.5>
+   0x0000000000001359 <+23>:	mov    %rax,%rdi
+   0x000000000000135c <+26>:	callq  0x10b0 <fflush@plt>
+   0x0000000000001361 <+31>:	mov    $0x0,%eax
+   0x0000000000001366 <+36>:	pop    %rbp
+   0x0000000000001367 <+37>:	retq   
+End of assembler dump.
+Dump of assembler code for function goodfunction:
+   0x0000000000001342 <+0>:	push   %rbp
+   0x0000000000001343 <+1>:	mov    %rsp,%rbp
+   0x0000000000001346 <+4>:	lea    0xd4b(%rip),%rdi        # 0x2098
+   0x000000000000134d <+11>:	callq  0x1030 <puts@plt>
+   0x0000000000001352 <+16>:	mov    0x2cc7(%rip),%rax        # 0x4020 <stdout@@GLIBC_2.2.5>
+   0x0000000000001359 <+23>:	mov    %rax,%rdi
+   0x000000000000135c <+26>:	callq  0x10b0 <fflush@plt>
+   0x0000000000001361 <+31>:	mov    $0x0,%eax
+   0x0000000000001366 <+36>:	pop    %rbp
+   0x0000000000001367 <+37>:	retq   
+End of assembler dump.
+Dump of assembler code for function goodfunction:
+   0x0000000000001342 <+0>:	push   %rbp
+   0x0000000000001343 <+1>:	mov    %rsp,%rbp
+   0x0000000000001346 <+4>:	lea    0xd4b(%rip),%rdi        # 0x2098
+   0x000000000000134d <+11>:	callq  0x1030 <puts@plt>
+   0x0000000000001352 <+16>:	mov    0x2cc7(%rip),%rax        # 0x4020 <stdout@@GLIBC_2.2.5>
+   0x0000000000001359 <+23>:	mov    %rax,%rdi
+   0x000000000000135c <+26>:	callq  0x10b0 <fflush@plt>
+   0x0000000000001361 <+31>:	mov    $0x0,%eax
+   0x0000000000001366 <+36>:	pop    %rbp
+   0x0000000000001367 <+37>:	retq   
+End of assembler dump.
+Dump of assembler code for function goodfunction:
+   0x0000000000001342 <+0>:	push   %rbp
+   0x0000000000001343 <+1>:	mov    %rsp,%rbp
+   0x0000000000001346 <+4>:	lea    0xd4b(%rip),%rdi        # 0x2098
+   0x000000000000134d <+11>:	callq  0x1030 <puts@plt>
+   0x0000000000001352 <+16>:	mov    0x2cc7(%rip),%rax        # 0x4020 <stdout@@GLIBC_2.2.5>
+   0x0000000000001359 <+23>:	mov    %rax,%rdi
+   0x000000000000135c <+26>:	callq  0x10b0 <fflush@plt>
+   0x0000000000001361 <+31>:	mov    $0x0,%eax
+   0x0000000000001366 <+36>:	pop    %rbp
+   0x0000000000001367 <+37>:	retq   
+End of assembler dump.
+Dump of assembler code for function hackedfunction:
+   0x0000000000001368 <+0>:	push   %rbp
+   0x0000000000001369 <+1>:	mov    %rsp,%rbp
+   0x000000000000136c <+4>:	push   %rbx
+   0x000000000000136d <+5>:	sub    $0x8,%rsp
+   0x0000000000001371 <+9>:	lea    0xd5d(%rip),%rdi        # 0x20d5
+   0x0000000000001378 <+16>:	mov    $0x0,%eax
+   0x000000000000137d <+21>:	callq  0x1060 <printf@plt>
+   0x0000000000001382 <+26>:	mov    0x2c97(%rip),%rax        # 0x4020 <stdout@@GLIBC_2.2.5>
+   0x0000000000001389 <+33>:	mov    %rax,%rdi
+   0x000000000000138c <+36>:	callq  0x10b0 <fflush@plt>
+   0x0000000000001391 <+41>:	callq  0x1090 <geteuid@plt>
+   0x0000000000001396 <+46>:	mov    %eax,%ebx
+   0x0000000000001398 <+48>:	callq  0x1090 <geteuid@plt>
+   0x000000000000139d <+53>:	mov    %ebx,%esi
+   0x000000000000139f <+55>:	mov    %eax,%edi
+   0x00000000000013a1 <+57>:	callq  0x10c0 <setreuid@plt>
+   0x00000000000013a6 <+62>:	lea    0xd36(%rip),%rdi        # 0x20e3
+   0x00000000000013ad <+69>:	callq  0x1050 <system@plt>
+   0x00000000000013b2 <+74>:	mov    $0x0,%eax
+   0x00000000000013b7 <+79>:	add    $0x8,%rsp
+   0x00000000000013bb <+83>:	pop    %rbx
+   0x00000000000013bc <+84>:	pop    %rbp
+   0x00000000000013bd <+85>:	retq   
+End of assembler dump.
