@@ -1,0 +1,79 @@
+Narnia7 After-action Writeup
+
+We are handed a challenge on a silver platter: find "0x080486ff" in memory and overwrite 
+it with "0x08048724". Several papers on the topic exist and I read through them with 
+interest. Essentially we are going to use "%.NNNx%n" to specify the width of the output 
+we printed in characters, and then write that integer count out. By placing addresses in
+our input, we can cause the integer values to be written to those addresses just as we 
+pop them off the stack. (I am making it sound easy but can't imagine dreaming this up!)
+
+Use "AAAA" and "%x" to figure out how many calls pop our input onto the stack. 
+`narnia7@narnia:/narnia$ ltrace ./narnia7 AAAA%x%x%x%x...` 
+Add "%x" items until you the tell-tale "0x41414141" show up in the stack trace. 
+
+The program tells us the target address we wish to overwrite -- although this changes 
+depending on whether we're in GDB or not! In the "real world" we are targeting "0xffffd528" 
+but in GDB and LTRACE we may be plus or minus as much as 0x20. But running within
+GDB gives us the ability to see what we're doing so we'll start there. 
+`gdb narnia7` 
+`disas vuln`
+
+You'll want to find a breakpoint just before the program leaves the vulnerable function,
+so you can see if you've set the address correctly using 
+
+`x/24x 0xffffd528` 
+
+Now, let's set about changing the bytes at that address. The paper I read 
+(https://www.exploit-db.com/docs/english/28476-linux-format-string-exploitation.pdf) 
+shows that you can basically load the address into your format string vuln, and then load 
+up a fixed-width %.NNNNx followed by %n to "increment" that address.
+
+So we are going to build a format string exploit of the following form:
+
+| ---- inputs ---- ...                                                  ....|
+|---- ADDR1 ----|pad|---- ADDR2 ----|pad|---- ADDR3 ----|pad|---- ADDR4 ----|
+\x28\xd5\xff\xffAAAA\x29\xd5\xff\xffBBBB\x2a\xd5\xff\xffCCCC\x2b\xd5\xff\xff
+
+|pop|write1||write2|write3|write4|
+%x%x%.124x%n%.290x%n%.87x%n%.69x%n
+
+Let's put four single-byte addresses of our choice (ADDR1, ADDR2, etc.) into the input, separated
+by padding characters. Then we use "pop" to make those addresses (our targets!) ready for
+writing. We then pop the padding with %.NNNNx, specify a width of our choice, and then write
+the total number of characters printed so far with %n to that byte of memory. By choosing
+the integer width (NNNN) carefully, we can choose to set: 
+
+ADDR  | was | is | offset (decimal)
+-=-=-=-=-=-=-=-=-=-=-=-=-
+...28 |0x32 |0x24| 264
+...29 |0x00 |0x87| 99
+...2a |0x00 |0x04| 125
+...2b |0x00 |0x08| 260
+
+Why was ADDR1 already at 32? Because that's the count of integers we had already printed
+in our input. Four groups of four address bytes, three sets of four-byte padding, and the bytes 
+we already popped off the stack using our earlier pop.  
+
+In order to "decrement" to the target of 24, we have to roll over the count. This creates a
+"carry-the-one" rollover into the next byte, so when we choose the offset for ADDR2 we 
+start with a 1. We continue adding width to each subsequent "%.NNNNx%n" call, dropping 
+a new integer into the next byte of the address we're overwriting. Remember that it's a single call
+to snprint() so each time you choose NNNN you are choosing it such that the two LSBs of the 
+result can be added to the previous %n result to yield the numbers you want. 
+
+off1 | off2 | off3 | off4 | output addr | %n running total
+---------------------------------------------------
+0000 | 0000 | 0000 | 0000 | 0x00000032  | 0x32
+0000 | 0000 | 0000 | 0264 | 0x00000024  | 0x124
+0000 | 0000 | 0099 | 0264 | 0x00018724  | 0x187
+0000 | 0125 | 0099 | 0264 | 0x01c48724  | 0x1c4
+0260 | 0125 | 0099 | 0264 | 0x08048724  | 0x208
+
+If we've done this right, we end up writing integers to each of the four bytes of the target address
+and specify a new return address. We have chosen 0x08048724 because that's where the 
+hacked function starts -- it performs priv-esc and gives us a shell automatically! You could also
+use this approach to escape snprintf() to make a call to a standard lib function like exec() or 
+system(). Challenge left as an exercise to the reader! 
+
+Sufficient for now to just jump into the hacked function and appreciate the cleverness of this
+technique. 
