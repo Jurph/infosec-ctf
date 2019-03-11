@@ -1,62 +1,62 @@
 Dump of assembler code for function main:
    0x08048490 <+0>:	push   %ebp
    0x08048491 <+1>:	mov    %esp,%ebp
-   0x08048493 <+3>:	cmpl   $0x1,0x8(%ebp)
-   0x08048497 <+7>:	jle    0x80484ac <main+28>
-   0x08048499 <+9>:	mov    0xc(%ebp),%eax
+   0x08048493 <+3>:	cmpl   $0x1,0x8(%ebp)      ; if (argc > 1) 
+   0x08048497 <+7>:	jle    0x80484ac <main+28> ; jump to error section
+   0x08048499 <+9>:	mov    0xc(%ebp),%eax      
    0x0804849c <+12>:	add    $0x4,%eax
    0x0804849f <+15>:	mov    (%eax),%eax
    0x080484a1 <+17>:	push   %eax
-   0x080484a2 <+18>:	call   0x804841b <func>
+   0x080484a2 <+18>:	call   0x804841b <func>    ; Call func() with %eax (arg[1]) 
    0x080484a7 <+23>:	add    $0x4,%esp
-   0x080484aa <+26>:	jmp    0x80484bf <main+47>
-   0x080484ac <+28>:	mov    0xc(%ebp),%eax
-   0x080484af <+31>:	mov    (%eax),%eax
+   0x080484aa <+26>:	jmp    0x80484bf <main+47> 
+   0x080484ac <+28>:	mov    0xc(%ebp),%eax      ; Error section
+   0x080484af <+31>:	mov    (%eax),%eax         ; 
    0x080484b1 <+33>:	push   %eax
-   0x080484b2 <+34>:	push   $0x8048554
-   0x080484b7 <+39>:	call   0x80482e0 <printf@plt>
+   0x080484b2 <+34>:	push   $0x8048554          ; arg[0], name of program
+   0x080484b7 <+39>:	call   0x80482e0 <printf@plt> ; printf() error message 
    0x080484bc <+44>:	add    $0x8,%esp
    0x080484bf <+47>:	mov    $0x0,%eax
-   0x080484c4 <+52>:	leave  
+   0x080484c4 <+52>:	leave                      ; ...and exit.
    0x080484c5 <+53>:	ret    
 End of assembler dump.
 Dump of assembler code for function func:
    0x0804841b <+0>:	push   %ebp
    0x0804841c <+1>:	mov    %esp,%ebp
-   0x0804841e <+3>:	sub    $0x18,%esp
-   0x08048421 <+6>:	mov    0x8(%ebp),%eax
+   0x0804841e <+3>:	sub    $0x18,%esp          
+   0x08048421 <+6>:	mov    0x8(%ebp),%eax      
    0x08048424 <+9>:	mov    %eax,-0x4(%ebp)
-   0x08048427 <+12>:	push   $0x14
-   0x08048429 <+14>:	push   $0x0
-   0x0804842b <+16>:	lea    -0x18(%ebp),%eax
+   0x08048427 <+12>:	push   $0x14            ; Here's "20" which is bok[]'s size
+   0x08048429 <+14>:	push   $0x0            
+   0x0804842b <+16>:	lea    -0x18(%ebp),%eax 
    0x0804842e <+19>:	push   %eax
-   0x0804842f <+20>:	call   0x8048300 <memset@plt>
+   0x0804842f <+20>:	call   0x8048300 <memset@plt> 
    0x08048434 <+25>:	add    $0xc,%esp
-   0x08048437 <+28>:	movl   $0x0,0x80497b0
-   0x08048441 <+38>:	jmp    0x8048469 <func+78>
-   0x08048443 <+40>:	mov    0x80497b0,%eax
-   0x08048448 <+45>:	mov    0x80497b0,%edx
-   0x0804844e <+51>:	mov    %edx,%ecx
+   0x08048437 <+28>:	movl   $0x0,0x80497b0      ; i = 0; 
+   0x08048441 <+38>:	jmp    0x8048469 <func+78> ; this is the control comparison of the FOR loop
+   0x08048443 <+40>:	mov    0x80497b0,%eax      ; We jump in here to execute the array copy
+   0x08048448 <+45>:	mov    0x80497b0,%edx      ; Here's i getting copied to %eax and %edx 
+   0x0804844e <+51>:	mov    %edx,%ecx           
    0x08048450 <+53>:	mov    -0x4(%ebp),%edx
    0x08048453 <+56>:	add    %ecx,%edx
    0x08048455 <+58>:	movzbl (%edx),%edx
    0x08048458 <+61>:	mov    %dl,-0x18(%ebp,%eax,1)
    0x0804845c <+65>:	mov    0x80497b0,%eax
-   0x08048461 <+70>:	add    $0x1,%eax
-   0x08048464 <+73>:	mov    %eax,0x80497b0
-   0x08048469 <+78>:	mov    0x80497b0,%eax
-   0x0804846e <+83>:	mov    %eax,%edx
+   0x08048461 <+70>:	add    $0x1,%eax           ; i++ 
+   0x08048464 <+73>:	mov    %eax,0x80497b0      ; and store result in i
+   0x08048469 <+78>:	mov    0x80497b0,%eax      ; set up the comparison of blah[i] and NUL 
+   0x0804846e <+83>:	mov    %eax,%edx     
    0x08048470 <+85>:	mov    -0x4(%ebp),%eax
    0x08048473 <+88>:	add    %edx,%eax
    0x08048475 <+90>:	movzbl (%eax),%eax
-   0x08048478 <+93>:	test   %al,%al
-   0x0804847a <+95>:	jne    0x8048443 <func+40>
-   0x0804847c <+97>:	lea    -0x18(%ebp),%eax
-   0x0804847f <+100>:	push   %eax
-   0x08048480 <+101>:	push   $0x8048550
-   0x08048485 <+106>:	call   0x80482e0 <printf@plt>
-   0x0804848a <+111>:	add    $0x8,%esp
+   0x08048478 <+93>:	test   %al,%al          ; 
+   0x0804847a <+95>:	jne    0x8048443 <func+40> ; If not equal jump back and set bok[i] equal to blah[i].
+   0x0804847c <+97>:	lea    -0x18(%ebp),%eax    
+   0x0804847f <+100>:	push   %eax             ; Put the input on the stack 
+   0x08048480 <+101>:	push   $0x8048550       ; Then we put 0x08048550 on the stack (the format string) 
+   0x08048485 <+106>:	call   0x80482e0 <printf@plt> ; And printf() it 
+   0x0804848a <+111>:	add    $0x8,%esp        
    0x0804848d <+114>:	nop
-   0x0804848e <+115>:	leave  
-   0x0804848f <+116>:	ret    
+   0x0804848e <+115>:	leave                  
+   0x0804848f <+116>:	ret                     ; and go back to main() to exit. 
 End of assembler dump.
