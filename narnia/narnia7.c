@@ -48,7 +48,7 @@ int main(int argc, char **argv){
                 exit(-1);
         }
         exit(vuln(argv[1]));  																		// 0x080486f1 - wait, what?! We're exiting the whole time vuln() is running? 
-}																										// 						TODO: consider pointer implications.
+}																										// 	TODO: consider pointer implications.
 
 int goodfunction(){
         printf("Welcome to the goodfunction, but i said the Hackedfunction..\n");
